@@ -46,7 +46,7 @@ this.$ = this.jQuery = jQuery.noConflict(true);
 
 
         }
-    },1000);
+    },1100);
 
 
 })();
