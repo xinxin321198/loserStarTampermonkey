@@ -2,8 +2,8 @@
 // @name         loserStar老王农民知识竞赛
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  try to take over the world!
-// @author       You
+// @description  这是一个用于https://nongminjingsai.com/phone/login?redirect=%2Fexam%2FcommonExam%3F 该页面的自动答题并提交答卷的脚本
+// @author       loserStar
 // @match        https://nongminjingsai.com/phone/exam/commonExam
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=tampermonkey.net
 // @grant        none
