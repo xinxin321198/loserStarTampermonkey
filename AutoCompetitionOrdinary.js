@@ -13,16 +13,23 @@ this.$ = this.jQuery = jQuery.noConflict(true);
 
 (function() {
     'use strict';
+    var pageDieCount = 0;
     setInterval(function(){
         console.log("获取包含选项的div");
+        if(pageDieCount>20){
+            //20次都没检测到出现题目选项，就重新加载页面
+            pageDieCount=0;//重置计数器
+            window.location.reload();
+        }
         var itemList = $(".item");
-        if (itemList.length>0){
+        if (itemList!=null&&itemList.length>0){
             var item = itemList[0];
             console.log("获取div下的所有选项");
             var children = $(item).children();
-            var selectedIndex = Math.floor(Math.random() * children.length);
-            console.log("点击第" + (selectedIndex+1) +"个选项");
-            $(children[selectedIndex]).trigger("click");
+            // var selectedIndex = Math.floor(Math.random() * children.length);
+            // console.log("点击第" + (selectedIndex+1) +"个选项");
+            // $(children[selectedIndex]).trigger("click");
+            $(children[0]).trigger("click");
             console.log("获取下一题按钮");
 
             //如果出现继续答题，就选择继续答题
@@ -42,11 +49,11 @@ this.$ = this.jQuery = jQuery.noConflict(true);
                     $(xiayitiBtn).trigger("click");
                 }
             }
-
-
-
+        }else{
+            pageDieCount++;
+            console.log("页面检测不到item"+pageDieCount+"次（总共检测20次）");
         }
-    },1100);
+    },1000);
 
 
 })();
